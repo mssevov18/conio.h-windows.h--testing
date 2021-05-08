@@ -18,5 +18,5 @@
 
 int main()
 {
-	windowsH_main();
+	windowsH_movement_main();
 }
