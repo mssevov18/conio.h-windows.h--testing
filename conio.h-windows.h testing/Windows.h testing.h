@@ -70,7 +70,7 @@ int windowsH_movement_main()
 	bool speed = false;
 	BYTE r = 200, g = 180, b = 30;
 	COLORREF mainclr = RGB(r, g, b);
-	COLORREF bgclr = RGB(0,0,0);
+	COLORREF bgclr = GetPixel(hdc, 10, 10);
 	size_t sizeX = 5;
 	size_t sizeY = 5;
 	size_t psizeX = 5;
