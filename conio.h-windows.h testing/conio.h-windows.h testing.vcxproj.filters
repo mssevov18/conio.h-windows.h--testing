@@ -13,10 +13,16 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Render test Files">
+      <UniqueIdentifier>{accc813c-e26e-43e2-9a1c-e7faa262d450}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="conio.h-windows.h testing.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTest.cpp">
+      <Filter>Header Files\Render test Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +49,12 @@
     </ClInclude>
     <ClInclude Include="Windows.h testing.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Soundtesting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTest.h">
+      <Filter>Header Files\Render test Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

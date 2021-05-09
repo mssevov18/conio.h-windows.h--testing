@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="conio.h-windows.h testing.cpp" />
+    <ClCompile Include="RenderTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chrono testing.h" />
@@ -148,6 +149,8 @@
     <ClInclude Include="olcConsoleGameEngine.h" />
     <ClInclude Include="olctesting.h" />
     <ClInclude Include="Putch-Getch console input.h" />
+    <ClInclude Include="RenderTest.h" />
+    <ClInclude Include="Soundtesting.h" />
     <ClInclude Include="Windows Clear Screen.h" />
     <ClInclude Include="Windows.h testing.h" />
   </ItemGroup>

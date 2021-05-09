@@ -15,8 +15,10 @@
 #include "Windows.h testing.h"			//windowsH_drawSin_main()	-> Draws the sin function using SetPixel
 										//windowsH_movement_main()	-> Simple 2d movement with pixel manipulation
 										//windowsH_main()			-> Testing.
+#include "RenderTest.h"
+
 
 int main()
 {
-	windowsH_drawSin_main();
+	RenderTest_main();
 }
