@@ -18,5 +18,5 @@
 
 int main()
 {
-
+	windowsH_drawSin_main();
 }

@@ -12,23 +12,139 @@ int windowsH_drawSin_main()
 	HWND myconsole = GetConsoleWindow();
 	HDC mydc = GetDC(myconsole);
 
+	int pos = 0;
+	double size = 4.0;
+	double iSeed = 0;
+	int height = 25;
 	int xPos = 0;
+	char a = 1;
+	bool aa = true, bb = false, cc = false, dd = false;
 
 	//Choose any color
 	COLORREF COLOR = RGB(255, 255, 255);
-	srand(400);
 
-	//Draw xPoss
-	for (double i = 0; i < PI * 4; i += 0.05)
+	while (!(a == 27))
 	{
-		SetPixel(mydc, xPos, (int)(100 + 25 * sin(i)), COLOR);
-		if (!(xPos % (int)(50 + 25 * sin(i))))
-			COLOR = RGB(rand() % 256, rand() % 256, rand() % 256);
-		xPos += 1;
+		srand(400 * (int)a);
+		COLOR = RGB(rand() % 256, rand() % 256, rand() % 256);
+		xPos = pos;
+
+		//Draw xPos
+		for (double i = iSeed; i < PI * size; i += 0.05)
+		{
+			if(aa)
+				SetPixel(mydc, xPos, (int)(75 + height + height * sin(i)), COLOR);
+			if(bb)
+				SetPixel(mydc, xPos, (int)(75 + height + height * sin(i + PI)), COLOR);
+			if (dd)
+			{
+				if (xPos % 6 == 0)
+				{
+					for (double j = (height * sin(i) > height * sin(i + PI) ? height * sin(i + PI) : height * sin(i));
+								j < (height * sin(i) > height * sin(i + PI) ? height * sin(i) : height * sin(i + PI));
+								j += 0.5)
+						SetPixel(mydc, xPos, (int)(75 + height + j), COLOR);
+				}
+			}
+			if(cc)
+				SetPixel(mydc, xPos, (int)(275 + height + height * sin(i)), COLOR);
+			if (!(xPos % (rand()% 30 + 15)))
+				COLOR = RGB(rand() % 256, rand() % 256, rand() % 256);
+			xPos += 1;
+		}
+
+		a = _getch();
+
+		COLOR = GetPixel(mydc, 0, 0);
+		xPos = pos;
+		for (double i = iSeed; i < PI * size; i += 0.05)
+		{
+			if (aa)
+				SetPixel(mydc, xPos, (int)(75 + height + height * sin(i)), COLOR);
+			if (bb)
+				SetPixel(mydc, xPos, (int)(75 + height + height * sin(i + PI)), COLOR);
+			if (dd)
+			{
+				if (xPos % 6 == 0)
+				{
+					for (double j = (height * sin(i) > height * sin(i + PI) ? height * sin(i + PI) : height * sin(i));
+						j < (height * sin(i) > height * sin(i + PI) ? height * sin(i) : height * sin(i + PI));
+						j += 0.5)
+						SetPixel(mydc, xPos, (int)(75 + height + j), COLOR);
+				}
+			}
+			if (cc)
+				SetPixel(mydc, xPos, (int)(275 + height + height * sin(i)), COLOR);
+			xPos += 1;
+		}
+
+		switch (a)
+		{
+		case 'a':
+			pos--;
+			break;
+		case 'd':
+			pos++;
+			break;
+		case 'w':
+			size += 0.05 / PI;
+			break;
+		case 's':
+			size -= 0.05 / PI;
+			break;
+		case 'W':
+			size += 0.5 / PI;
+			break;
+		case 'S':
+			size -= 0.5 / PI;
+			break;
+		case 'e':
+			size += 0.05 / PI;
+			iSeed += 0.05;
+			break;
+		case 'q':
+			size -= 0.05 / PI;
+			iSeed -= 0.05;
+			break;
+		case 'E':
+			size += 0.5 / PI;
+			iSeed += 0.5;
+			break;
+		case 'Q':
+			size -= 0.5 / PI;
+			iSeed -= 0.5;
+			break;
+		case 'r':
+			iSeed += 0.05;
+			break;
+		case 'f':
+			iSeed -= 0.05;
+			break;
+		case 't':
+			height++;
+			break;
+		case 'g':
+			height--;
+			break;
+		case 'z':
+			aa = !aa;
+			break;
+		case 'x':
+			bb = !bb;
+			break;
+		case 'c':
+			dd = !dd;
+			break;
+		case 'v':
+			cc = !cc;
+			break;
+		default:
+			break;
+		}
+
 	}
 
 	ReleaseDC(myconsole, mydc);
-	std::cin.ignore();
 
 	return 0;
 }
